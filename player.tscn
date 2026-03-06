@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://brau58rmny6lx" path="res://car-Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dgemna2cprj7k" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="AudioStream" uid="uid://boxjwu0aaxor7" path="res://hit.wav" id="3_i3pqv"]
+[ext_resource type="AudioStream" uid="uid://dkuboj3o8vmhp" path="res://lap.wav" id="4_1jxqw"]
+[ext_resource type="AudioStream" uid="uid://bwxhwy7sb0wxb" path="res://drive.wav" id="5_dw050"]
+[ext_resource type="AudioStream" uid="uid://df6vlnnh1k0gm" path="res://drive_2.wav" id="6_b26j0"]
+[ext_resource type="AudioStream" uid="uid://cewnp48spfg1w" path="res://drive_3.wav" id="7_n7ghd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
 size = Vector2(28, 11)
@@ -11,6 +16,7 @@ size = Vector2(35, 20)
 
 [node name="Player" type="CharacterBody2D" unique_id=1730874935 groups=["player"]]
 script = ExtResource("1_onrkg")
+drives = [NodePath("Drive"), NodePath("Drive2"), NodePath("Drive3")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=384746388]
 texture_filter = 1
@@ -39,6 +45,24 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="otherCar" unique_id=1036195278]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="hit" type="AudioStreamPlayer2D" parent="." unique_id=493703547]
+stream = ExtResource("3_i3pqv")
+
+[node name="lap" type="AudioStreamPlayer2D" parent="." unique_id=1125489150]
+stream = ExtResource("4_1jxqw")
+
+[node name="Drive" type="AudioStreamPlayer2D" parent="." unique_id=2078253097]
+position = Vector2(-11, 3)
+stream = ExtResource("5_dw050")
+
+[node name="Drive2" type="AudioStreamPlayer2D" parent="." unique_id=380632204]
+position = Vector2(-10, 7)
+stream = ExtResource("6_b26j0")
+
+[node name="Drive3" type="AudioStreamPlayer2D" parent="." unique_id=1665540335]
+position = Vector2(-10, 8)
+stream = ExtResource("7_n7ghd")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="otherCar" to="." method="_on_other_car_body_entered"]

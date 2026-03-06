@@ -1,5 +1,44 @@
 [gd_scene format=3 uid="uid://bnxtikkajcqlb"]
 
+[ext_resource type="Script" uid="uid://dtvbtpbjxkl75" path="res://title.gd" id="1_quvj1"]
+[ext_resource type="LabelSettings" uid="uid://wpi7u7fd608j" path="res://main_label.tres" id="2_e4n62"]
+[ext_resource type="Theme" uid="uid://dirb3flu807po" path="res://main.tres" id="3_rg4ux"]
+
 [node name="Title" type="Node2D" unique_id=483709088]
+script = ExtResource("1_quvj1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=686032231]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1876857044]
+offset_right = 256.0
+offset_bottom = 144.0
+color = Color(0, 0, 0, 1)
+
+[node name="title" type="Label" parent="CanvasLayer" unique_id=2016040719]
+texture_filter = 1
+offset_right = 255.0
+offset_bottom = 23.0
+text = "A Bagel in LA"
+label_settings = ExtResource("2_e4n62")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=504720715]
+texture_filter = 1
+offset_left = 98.0
+offset_top = 20.0
+offset_right = 154.0
+offset_bottom = 44.0
+theme = ExtResource("3_rg4ux")
+text = "Play"
+flat = true
+
+[node name="best_lap" type="Label" parent="CanvasLayer" unique_id=2000775104]
+offset_top = 44.0
+offset_right = 256.0
+offset_bottom = 67.0
+label_settings = ExtResource("2_e4n62")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

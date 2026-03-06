@@ -50,6 +50,5 @@ vertical_alignment = 1
 
 [node name="enemy" parent="." unique_id=1639295798 instance=ExtResource("5_036b0")]
 position = Vector2(-63, 67)
-SPEED_MAX = 4
 
 [connection signal="lapped" from="Player" to="." method="_on_player_lapped"]
