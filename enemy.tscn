@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://2oqfqxx5b61g"]
+
+[ext_resource type="Script" uid="uid://djt30pvutknc5" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://brau58rmny6lx" path="res://car-Sheet.png" id="2_qi2p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_036b0"]
+size = Vector2(24, 11)
+
+[node name="enemy" type="RigidBody2D" unique_id=1639295798]
+visible = false
+collision_layer = 5
+gravity_scale = 0.0
+script = ExtResource("1_4gyqm")
+SPEED_MAX = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=644043986]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_036b0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635089344]
+texture_filter = 1
+rotation = 3.1415927
+texture = ExtResource("2_qi2p4")
+vframes = 2
+frame = 1

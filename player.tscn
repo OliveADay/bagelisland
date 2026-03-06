@@ -1,12 +1,15 @@
-[gd_scene format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene format=3 uid="uid://dfun1w7j3p3pk"]
 
 [ext_resource type="Texture2D" uid="uid://brau58rmny6lx" path="res://car-Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dgemna2cprj7k" path="res://player.gd" id="1_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
-size = Vector2(29, 13)
+size = Vector2(28, 11)
 
-[node name="Player" type="CharacterBody2D" unique_id=1730874935]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(35, 20)
+
+[node name="Player" type="CharacterBody2D" unique_id=1730874935 groups=["player"]]
 script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=384746388]
@@ -16,7 +19,27 @@ texture = ExtResource("1_4flbx")
 vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2116100678]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_4flbx")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=372813123]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1675259756]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2072763084]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="otherCar" type="Area2D" parent="." unique_id=1394543686]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="otherCar" unique_id=1036195278]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="otherCar" to="." method="_on_other_car_body_entered"]
+[connection signal="body_exited" from="otherCar" to="." method="_on_other_car_body_exited"]
