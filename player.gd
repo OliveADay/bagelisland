@@ -20,6 +20,8 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	loadBScore()
+	if best_lap >= 20:
+		$Sprite2D.frame = 2
 
 func _process(delta: float) -> void:
 	if(colliding_with_enem):
@@ -33,8 +35,9 @@ func _process(delta: float) -> void:
 		
 	if velocity.length() > 0:
 		if drive_wait_current <=0:
-			get_node(drives[rng.randi_range(0,2)]).play()
-			drive_wait_current = drive_wait_max/velocity.length()
+			pass
+			#get_node(drives[rng.randi_range(0,2)]).play()
+			#drive_wait_current = drive_wait_max/velocity.length()
 		else:
 			pass
 			#drive_wait_current -=delta

@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://6owxtds2kwpt" path="res://tileset.png" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://dfun1w7j3p3pk" path="res://player.tscn" id="2_fj7yv"]
 [ext_resource type="LabelSettings" uid="uid://wpi7u7fd608j" path="res://main_label.tres" id="3_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://2oqfqxx5b61g" path="res://enemy.tscn" id="5_036b0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fj7yv"]
 texture = ExtResource("1_f3sb7")
@@ -36,6 +35,8 @@ tile_map_data = PackedByteArray("AAD8//z/AAAAAAAAAAD9//z/AAAAAAAAAAD9//v/AAAAAAA
 tile_set = SubResource("TileSet_tlwt5")
 
 [node name="Player" parent="." unique_id=1730874935 instance=ExtResource("2_fj7yv")]
+texture_filter = 1
+drives = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1510844230]
 
@@ -47,8 +48,5 @@ offset_bottom = 23.0
 label_settings = ExtResource("3_tlwt5")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="enemy" parent="." unique_id=1639295798 instance=ExtResource("5_036b0")]
-position = Vector2(-63, 67)
 
 [connection signal="lapped" from="Player" to="." method="_on_player_lapped"]

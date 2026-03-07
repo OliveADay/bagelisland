@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnxtikkajcqlb"]
 
-[ext_resource type="Script" uid="uid://dtvbtpbjxkl75" path="res://title.gd" id="1_quvj1"]
+[ext_resource type="Script" path="res://title.gd" id="1_quvj1"]
 [ext_resource type="LabelSettings" uid="uid://wpi7u7fd608j" path="res://main_label.tres" id="2_e4n62"]
 [ext_resource type="Theme" uid="uid://dirb3flu807po" path="res://main.tres" id="3_rg4ux"]
 
@@ -34,6 +34,7 @@ text = "Play"
 flat = true
 
 [node name="best_lap" type="Label" parent="CanvasLayer" unique_id=2000775104]
+texture_filter = 1
 offset_top = 44.0
 offset_right = 256.0
 offset_bottom = 67.0
